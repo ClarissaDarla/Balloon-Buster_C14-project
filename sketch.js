@@ -26,6 +26,8 @@ function setup() {
   bow = createSprite(380,220,20,50);
   bow.addImage(bowImage); 
   bow.scale = 1;
+
+  score = 0;
   
 }
 
@@ -48,9 +50,9 @@ function draw() {
   }
   
   //creating continous balloons
-  var select_balloon = Math.round(random(1,1));
+  var select_balloon = Math.round(random(1,4));
   
-  if (World.frameCount % 100 == 0) {
+  if (World.frameCount % 60 == 0) {
     if (select_balloon == 1) {
       redBalloon();
     } else if (select_balloon == 2){
@@ -63,12 +65,12 @@ function draw() {
   }
 
   //creating score
-  score = 0;
-  textSize(20);
-  text("Score : "+score,10,10);
-
-  
   drawSprites();
+  
+  textSize(25)
+  fill ("black")
+  text("Score : "+score,300,50);
+
 }
 
 
@@ -117,5 +119,5 @@ function pinkBalloon() {
   pink.addImage(pink_balloonImage);
   pink.velocityX = 3;
   pink.lifetime = 150;
-  pink.scale = 0.1;
+  pink.scale = 1.5;
 }
